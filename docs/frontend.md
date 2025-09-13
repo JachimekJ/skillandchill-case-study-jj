@@ -1,56 +1,93 @@
 # Frontend – Portal B2B dla dystrybutorów
 
 ## 1. Technologie
-- HTML5 – struktura strony.
-- CSS3 (Flexbox, Grid) – layout, responsywność (desktop-first).
-- JavaScript (ES6+) – logika, walidacje, komunikacja z backendem (fetch).
-- (Opcjonalnie) framework CSS: Bootstrap/Tailwind.
+- **HTML5** – struktura strony.
+- **CSS3 (Flexbox, Grid)** – layout, responsywność (desktop-first).
+- **JavaScript (ES6+)** – logika, walidacje, komunikacja z backendem (fetch API).
+- **(Opcjonalnie)** framework CSS: Bootstrap / Tailwind dla szybszego prototypowania.
+
+---
 
 ## 2. Struktura projektu
 frontend/
-├── index.html          -> Strona główna / logowanie
-├── style.css           -> Style globalne
-├── app.js              -> Logika aplikacji, komunikacja API
-├── assets/             -> Zasoby (grafiki/ikony)
+├── index.html            -> Strona logowania
+├── style.css             -> Style globalne
+├── app.js                -> Logika aplikacji, komunikacja z API
+├── assets/               -> Zasoby (grafiki/ikony)
 │   └── .gitkeep
-├── components/         -> Komponenty HTML
-│   └── login-form.html
-├── pages/              -> Podstrony
+├── components/           -> Komponenty HTML (formularze, listy)
+│   ├── login-form.html
+│   ├── sales-form.html
+│   ├── purchase-form.html
+│   └── media-list.html
+├── pages/                -> Podstrony
 │   ├── dashboard.html
+│   ├── sales.html
+│   ├── purchase.html
+│   ├── media.html
 │   └── admin.html
 
+---
+
 ## 3. Główne widoki
-- index.html – ekran logowania.
-- dashboard.html – dashboard użytkownika (Sales, Purchase, Media).
-- admin.html – panel administratora (użytkownicy, logi).
+- **index.html** – ekran logowania.
+- **dashboard.html** – dashboard użytkownika po zalogowaniu (przekierowanie do modułów).
+- **sales.html** – moduł Sales Channels (formularz, tabela, eksport).
+- **purchase.html** – moduł Purchase Report (formularz, tabela, dashboard porównań).
+- **media.html** – repozytorium plików (lista, wyszukiwarka, pobieranie).
+- **admin.html** – panel administratora (użytkownicy, role, logi).
+
+---
 
 ## 4. Komponenty
-login-form.html
+**login-form.html**
 - Formularz logowania (username, password).
-- Walidacja (JS).
-- Komunikaty: błąd logowania / konto zablokowane.
+- Walidacja w JS.
+- Obsługa komunikatów: błąd logowania / konto zablokowane.
 
-Dashboard (dashboard.html)
-- Sekcja Sales – formularz, tabela, eksport CSV.
-- Sekcja Purchases – formularz, tabela, eksport CSV.
-- Sekcja Media – lista plików, wyszukiwarka po SKU, pobieranie.
+**sales-form.html**
+- Formularz kwartalny (kanały sprzedaży: Professional, Pharmacy, Ecommerce B2C/B2B, Third Party, Other).
+- Auto-sumowanie (Total).
+- Przeliczenia na EUR wg kursu NBP.
+- Pole: New Clients.
 
-Admin Panel (admin.html)
+**purchase-form.html**
+- Formularz kwartalny (Last Year Sales, Purchases, Budget, Actual Sales).
+- Auto-wyliczenia: YoY, vs Budget.
+- Sekcja POS (Total POS, New openings, New openings target).
+
+**media-list.html**
+- Lista plików (Products, Marketing).
+- Wyszukiwarka po SKU.
+- Sortowanie (data, typ, rozmiar).
+- Pobieranie plików.
+
+**admin panel (admin.html)**
 - Lista użytkowników.
-- Zmiana roli.
-- Podgląd logów.
+- Zmiana ról.
+- Filtry (np. kraj, dystrybutor).
+- Podgląd logów aktywności.
+
+---
 
 ## 5. Komunikacja z API
-- fetch() do backendu (REST, JSON).
-- JWT w localStorage / sessionStorage.
-- Nagłówek Authorization: `Bearer <token>`.
+- `fetch()` (REST, JSON).
+- JWT przechowywane w `localStorage` lub `sessionStorage`.
+- Autoryzacja: nagłówek `Authorization: Bearer <token>`.
+- Obsługa błędów (np. brak dostępu → redirect do logowania).
+
+---
 
 ## 6. Responsywność
-- Desktop-first (grid + flex).
-- Mobile: uproszczony widok jednokolumnowy (menu jako burger).
+- Desktop-first (Grid + Flexbox).
+- Mobile: widok jednokolumnowy, menu typu burger.
+- Większość użytkowników → desktop, mobile pomocniczo.
+
+---
 
 ## 7. Priorytety MVP (Frontend)
-1) Logowanie (formularz, JWT, przekierowanie do dashboardu)  
-2) Dashboard – sekcje Sales i Purchase (formularze + listy)  
-3) Media – lista i pobieranie (wyszukiwarka po SKU)  
-4) Admin – minimalny widok listy użytkowników
+1. **Logowanie** – formularz + walidacja, JWT, redirect do dashboardu.  
+2. **Sales** – formularz i tabela z kanałami sprzedaży.  
+3. **Purchase Report** – formularz i dashboard porównań.  
+4. **Media** – lista plików, wyszukiwarka po SKU, pobieranie.  
+5. **Admin** – minimalny widok użytkowników + logi.  
