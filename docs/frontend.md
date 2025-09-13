@@ -32,8 +32,8 @@ frontend/
 ## 3. Główne widoki
 - **index.html** – ekran logowania.
 - **dashboard.html** – dashboard użytkownika po zalogowaniu (przekierowanie do modułów).
-- **sales.html** – moduł Sales Channels (formularz, tabela, eksport).
-- **purchase.html** – moduł Purchase Report (formularz, tabela, dashboard porównań).
+- **sales.html** – moduł Sales Reports (Sales Channels) – formularz, tabela, eksport.
+- **purchase.html** – moduł Purchase Reports – formularz, tabela, dashboard porównań.
 - **media.html** – repozytorium plików (lista, wyszukiwarka, pobieranie).
 - **admin.html** – panel administratora (użytkownicy, role, logi).
 
