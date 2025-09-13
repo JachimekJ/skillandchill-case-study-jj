@@ -166,8 +166,8 @@ BackendApp/
 ## 4. DTOs (przykłady)
 - UserLoginDto: { Username, Password }
 - UserResponseDto: { Id, Username, Role }
-- SalesDto: { pola formularza sprzedaży + Total + EUR_* }
-- PurchaseDto: { pola formularza zakupów + metryki porównawcze }
+- SalesReportDto: { pola formularza sprzedaży + Total + EUR_* }
+- PurchaseReportDto: { pola formularza zakupów + metryki porównawcze }
 - MediaDto: { Id, FileName, Path, Size, UploadedAt }
 
 ## 5. Serwisy (zarys)
