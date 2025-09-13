@@ -16,25 +16,152 @@ BackendApp/
 ├── Program.cs         -> Konfiguracja DI, middleware, MapGet/MapPost (Minimal API)
 ├── appsettings.json   -> Konfiguracja (np. connection string do SQLite)
 
-## 3. Modele danych (wysoki poziom)
-User
-- Id, Username, PasswordHash, Role, IsLocked, FailedAttempts, MustChangePassword
+## 3. Modele danych (Database Models)
+### Users
+- Id (PK)  
+- Username  
+- Email  
+- PasswordHash  
+- RoleId (FK → Roles.Id)  
+- IsLocked (bool)  
+- CreatedAt (datetime)  
+- UpdatedAt (datetime)  
 
-Sales
-- Id, DistributorId, Quarter, Currency,
-- Professional, Pharmacy, EcommerceB2C, EcommerceB2B, ThirdParty, Other, Total, NewClients,
-- EUR_* (pola przeliczone do EUR wg średniego kursu NBP)
+### Roles
+- Id (PK)  
+- Name — ["Employee", "Distributor", "ExportManager", "Admin", "SuperAdmin"]  
+- Description  
 
-Purchases
-- Id, DistributorId, Quarter,
-- LastYearSales, Purchases, Budget, ActualSales, YoY, VsBudget,
-- TotalPOS, NewOpenings, NewOpeningsTarget
+### LoginAttempts
+- Id (PK)  
+- UserId (FK → Users.Id)  
+- AttemptTime (datetime)  
+- IsSuccessful (bool)  
 
-Media
-- Id, Path, FileName, Type, Size, UploadedAt, UploadedBy, RoleAccess, SKU (opcjonalnie)
+### Distributors
+- Id (PK)  
+- UserId (FK → Users.Id)  
+- CompanyName  
+- Country  
+- ContactPerson  
+- Phone  
 
-Log
-- Id, UserId, Action, Timestamp, Metadata
+### SalesReports
+- Id (PK)  
+- DistributorId (FK → Distributors.Id)  
+- Quarter (string, np. "Q1-2025")  
+- ProfessionalSales  
+- PharmacySales  
+- EcommerceB2C  
+- EcommerceB2B  
+- ThirdParty  
+- Other  
+- TotalSales (calculated)  
+- NewClients  
+- TotalSalesEUR (calculated)  
+- CreatedAt (datetime)  
+
+### PurchaseReports
+- Id (PK)  
+- DistributorId (FK → Distributors.Id)  
+- Quarter (string)  
+- LastYearSales  
+- Purchases  
+- Budget  
+- ActualSales (from SalesReports.TotalSales)  
+- TotalVsLastYear (calculated)  
+- TotalVsBudget (calculated)  
+- TotalPOS  
+- NewOpenings  
+- NewOpeningsTarget  
+- CreatedAt (datetime)  
+
+### MediaFiles
+- Id (PK)  
+- FileName  
+- FilePath  
+- FileType  
+- FileSize  
+- SKU  
+- Category (PRODUCTS / MARKETING)  
+- UploadedAt (datetime)  
+- UploadedBy (FK → Users.Id)  
+
+### ActivityLogs
+- Id (PK)  
+- UserId (FK → Users.Id)  
+- Action (string)  
+- Timestamp (datetime)  
+- IPAddress  
+- Details (json / text)  
+
+---
+
+### ERD (simplified ASCII diagram)
+
++-------------+        +-----------+
+|   Roles     |1------<|   Users   |
+|-------------|        |-----------|
+| Id (PK)     |        | Id (PK)   |
+| Name        |        | Username  |
+| Description |        | Email     |
++-------------+        | Password  |
+                       | RoleId FK |
+                       | IsLocked  |
+                       +-----------+
+                             |
+                             |1
+                             | 
+                             v
+                       +-----------+
+                       |LoginAttempts|
+                       |-------------|
+                       | Id (PK)     |
+                       | UserId FK   |
+                       | AttemptTime |
+                       | IsSuccessful|
+                       +-------------+
+
++----------------+        +-------------------+
+|  Distributors  |1------<|   SalesReports    |
+|----------------|        |-------------------|
+| Id (PK)        |        | Id (PK)           |
+| UserId (FK)    |        | DistributorId (FK)|
+| CompanyName    |        | Quarter           |
+| Country        |        | Sales fields...   |
++----------------+        +-------------------+
+       |
+       |1
+       v
++-------------------+
+| PurchaseReports   |
+|-------------------|
+| Id (PK)           |
+| DistributorId (FK)|
+| Quarter           |
+| Purchases fields… |
++-------------------+
+
++------------+        +-------------+
+|   Users    |1------<| MediaFiles  |
+|------------|        |-------------|
+| Id (PK)    |        | Id (PK)     |
+| ...        |        | FileName    |
++------------+        | FilePath    |
+                      | SKU         |
+                      | UploadedByFK|
+                      +-------------+
+
++------------+        +----------------+
+|   Users    |1------<|  ActivityLogs  |
+|------------|        |----------------|
+| Id (PK)    |        | Id (PK)        |
+| ...        |        | UserId (FK)    |
++------------+        | Action         |
+                      | Timestamp      |
+                      +----------------+
+
+---
 
 ## 4. DTOs (przykłady)
 - UserLoginDto: { Username, Password }
@@ -100,3 +227,4 @@ GET  /api/admin/logs
 3) Purchase Report (dodawanie/odczyt + eksport CSV)  
 4) Media (lista + pobieranie; wyszukiwarka po SKU)  
 5) Admin (lista userów, zmiana ról, logi)
+
