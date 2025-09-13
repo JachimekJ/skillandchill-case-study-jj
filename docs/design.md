@@ -74,10 +74,10 @@ System działa w modelu klient–serwer:
 
 ## 8. Kluczowe encje (wysoki poziom)
 Users:      Id, Username, PasswordHash, Role, IsLocked, FailedAttempts, MustChangePassword
-Sales:      Id, DistributorId, Quarter, Currency, Professional, Pharmacy, EcommerceB2C, EcommerceB2B, ThirdParty, Other, Total, NewClients, EUR_*
-Purchases:  Id, DistributorId, Quarter, LastYearSales, Purchases, Budget, ActualSales, YoY, VsBudget, TotalPOS, NewOpenings, NewOpeningsTarget
-Media:      Id, Path, FileName, Type, Size, UploadedAt, UploadedBy, RoleAccess, SKU (opcjonalnie)
-Logs:       Id, UserId, Action, Timestamp, Metadata
+SalesReports:      Id, DistributorId, Quarter, Currency, Professional, Pharmacy, EcommerceB2C, EcommerceB2B, ThirdParty, Other, Total, NewClients, EUR_*
+PurchaseReports:  Id, DistributorId, Quarter, LastYearSales, Purchases, Budget, ActualSales, YoY, VsBudget, TotalPOS, NewOpenings, NewOpeningsTarget
+MediaFiles:      Id, Path, FileName, Type, Size, UploadedAt, UploadedBy, RoleAccess, SKU (opcjonalnie)
+ActivityLogs:       Id, UserId, Action, Timestamp, Metadata
 
 ## 9. Plan realizacji (zgodnie z case study)
 Faza I – Analiza i planowanie
