@@ -44,20 +44,21 @@ namespace BackendApp.Data
                 new Roles { Id = 5, Name = "SuperAdmin", Description = "Wszystkie uprawnienia" }
             );
 
-            // --- SEED ADMIN USER ---
-            modelBuilder.Entity<Users>().HasData(
-                new Users
-                {
-                    Id = 1,
-                    Username = "admin",
-                    Email = "admin@example.com",
-                    PasswordHash = "admin123", // TODO: zmienić na hash
-                    RoleId = 4,
-                    IsLocked = false,
-                    CreatedAt = new DateTime(2025, 1, 1),
-                    UpdatedAt = new DateTime(2025, 1, 1)
-                }
-            );
+           // --- SEED ADMIN USER ---
+modelBuilder.Entity<Users>().HasData(
+    new Users
+    {
+        Id = 1,
+        Username = "admin",
+        Email = "admin@example.com",
+        PasswordHash = "$2a$11$l.xBhLrd5QUl0IjgnVFOu.fPwPe9rSjKfYnowuvZ5.n9bysAVS4Ru", // admin123
+        RoleId = 4,
+        IsLocked = false,
+        CreatedAt = new DateTime(2025, 1, 1),
+        UpdatedAt = new DateTime(2025, 1, 1)
+    }
+);
+
         }
     }
 }

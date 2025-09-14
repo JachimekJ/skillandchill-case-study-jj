@@ -3,6 +3,7 @@ using System;
 using BackendApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250914093546_UpdateSeedHash")]
+    partial class UpdateSeedHash
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
@@ -131,13 +134,7 @@ namespace BackendApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("FailedLoginAttempts")
-                        .HasColumnType("INTEGER");
-
                     b.Property<bool>("IsLocked")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("MustChangePassword")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("PasswordHash")
@@ -166,9 +163,7 @@ namespace BackendApp.Migrations
                             Id = 1,
                             CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@example.com",
-                            FailedLoginAttempts = 0,
                             IsLocked = false,
-                            MustChangePassword = true,
                             PasswordHash = "$2a$11$l.xBhLrd5QUl0IjgnVFOu.fPwPe9rSjKfYnowuvZ5.n9bysAVS4Ru",
                             RoleId = 4,
                             UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),

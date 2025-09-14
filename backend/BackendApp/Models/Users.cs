@@ -11,6 +11,10 @@ namespace BackendApp.Models
         public Roles Role { get; set; }  // FK
 
         public bool IsLocked { get; set; } = false;
+
+        public bool MustChangePassword { get; set; } = true; // zmiana hasła przy pierwszym logowaniu
+
+        public int FailedLoginAttempts { get; set; } = 0; // licznik nieudanych prób
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
