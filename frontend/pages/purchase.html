@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal B2B – Purchase Report</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Purchase Report</h2>
+
+    <form id="purchaseForm">
+      <label>Kwartal:</label>
+      <input type="text" id="quarter" placeholder="np. Q1 2025" required>
+
+      <label>Last Year Sales:</label>
+      <input type="number" id="lastYearSales" value="0" required>
+
+      <label>Purchases:</label>
+      <input type="number" id="purchases" value="0" required>
+
+      <label>Budget:</label>
+      <input type="number" id="budget" value="0" required>
+
+      <label>Actual Sales:</label>
+      <input type="number" id="actualSales" value="0" required>
+
+      <label>Total POS:</label>
+      <input type="number" id="totalPOS" value="0" required>
+
+      <label>New openings:</label>
+      <input type="number" id="newOpenings" value="0" required>
+
+      <label>Openings target:</label>
+      <input type="number" id="openingsTarget" value="0" required>
+
+      <button type="submit">Zapisz</button>
+    </form>
+
+    <h3>Historia Purchase Reports</h3>
+    <table border="1" id="purchaseTable">
+      <thead>
+        <tr>
+          <th>Kwartal</th>
+          <th>Last Year</th>
+          <th>Purchases</th>
+          <th>Budget</th>
+          <th>Actual Sales</th>
+          <th>YoY</th>
+          <th>vs Budget</th>
+          <th>Total POS</th>
+          <th>New Openings</th>
+          <th>Target</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Dashboard</h3>
+    <canvas id="purchaseChart" width="600" height="300"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="purchase.js"></script>
+    <script src="purchase-dashboard.js"></script>  
+
+
+    <p id="purchaseMessage" class="error"></p>
+  </div>
+
+  <script src="purchase.js"></script>
+</body>
+</ht

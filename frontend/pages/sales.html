@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal B2B – Sales</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Sales Channels</h2>
+
+    <form id="salesForm">
+      <label>Kwartal:</label>
+      <input type="text" id="quarter" placeholder="np. Q1 2025" required>
+
+      <label>Waluta:</label>
+      <input type="text" id="currency" placeholder="PLN / EUR" required>
+
+      <label>Sprzedaż Professional:</label>
+      <input type="number" id="professional" value="0" required>
+
+      <label>Sprzedaż Pharmacy:</label>
+      <input type="number" id="pharmacy" value="0" required>
+
+      <label>Sprzedaż E-commerce B2C:</label>
+      <input type="number" id="ecommerceB2C" value="0" required>
+
+      <label>Sprzedaż E-commerce B2B:</label>
+      <input type="number" id="ecommerceB2B" value="0" required>
+
+      <label>Sprzedaż Third party:</label>
+      <input type="number" id="thirdParty" value="0" required>
+
+      <label>Sprzedaż Other:</label>
+      <input type="number" id="other" value="0" required>
+
+      <label>Nowi klienci:</label>
+      <input type="number" id="newClients" value="0" required>
+
+      <button type="submit">Zapisz</button>
+    </form>
+
+    <h3>Historia sprzedaży</h3>
+    <table border="1" id="salesTable">
+      <thead>
+        <tr>
+          <th>Kwartal</th>
+          <th>Waluta</th>
+          <th>Professional</th>
+          <th>Pharmacy</th>
+          <th>B2C</th>
+          <th>B2B</th>
+          <th>Third</th>
+          <th>Other</th>
+          <th>New Clients</th>
+          <th>Total</th>
+          <th>Total EUR</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p id="salesMessage" class="error"></p>
+  </div>
+
+  <script src="sales.js"></script>
+</body>
+</html>

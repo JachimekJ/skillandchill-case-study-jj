@@ -3,6 +3,7 @@ using System;
 using BackendApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250916211607_AddSalesReports")]
+    partial class AddSalesReports
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
@@ -66,121 +69,6 @@ namespace BackendApp.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("LoginAttempts");
-                });
-
-            modelBuilder.Entity("BackendApp.Models.MediaFile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MediaFiles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Date = new DateTime(2025, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "SKU123_main_1.jpg",
-                            Size = 512,
-                            Type = "image",
-                            Url = "/media/SKU123_main_1.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Date = new DateTime(2025, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "SKU123_manual.pdf",
-                            Size = 120,
-                            Type = "pdf",
-                            Url = "/media/SKU123_manual.pdf"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Date = new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "spring_sale_SKU123_SKU222.jpg",
-                            Size = 1024,
-                            Type = "image",
-                            Url = "/media/spring_sale_SKU123_SKU222.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Date = new DateTime(2025, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "SKU222_ingredients.pdf",
-                            Size = 90,
-                            Type = "pdf",
-                            Url = "/media/SKU222_ingredients.pdf"
-                        });
-                });
-
-            modelBuilder.Entity("BackendApp.Models.PurchaseReports", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("ActualSales")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Budget")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("DistributorId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("LastYearSales")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("NewOpenings")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("OpeningsTarget")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("Purchases")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Quarter")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("TotalPOS")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("YearVsBudget")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("YearVsLastYear")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PurchaseReports");
                 });
 
             modelBuilder.Entity("BackendApp.Models.Roles", b =>

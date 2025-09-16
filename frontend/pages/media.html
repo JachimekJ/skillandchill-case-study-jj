@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal B2B – Media</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Media Files</h2>
+
+    <!-- 🔎 wyszukiwarka -->
+    <form id="mediaSearchForm">
+      <input type="text" id="sku" placeholder="Wpisz numer SKU (np. SKU123)" required>
+      <button type="submit">Szukaj</button>
+    </form>
+
+    <h3>Lista plików</h3>
+    <table border="1" id="mediaTable">
+      <thead>
+        <tr>
+          <th>Nazwa pliku</th>
+          <th>Typ</th>
+          <th>Rozmiar (KB)</th>
+          <th>Data</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p id="mediaMessage" class="error"></p>
+  </div>
+
+  <script src="media.js"></script>
+</body>
+</html>

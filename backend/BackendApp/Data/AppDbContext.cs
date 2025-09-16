@@ -44,21 +44,36 @@ namespace BackendApp.Data
                 new Roles { Id = 5, Name = "SuperAdmin", Description = "Wszystkie uprawnienia" }
             );
 
-           // --- SEED ADMIN USER ---
-modelBuilder.Entity<Users>().HasData(
-    new Users
-    {
-        Id = 1,
-        Username = "admin",
-        Email = "admin@example.com",
-        PasswordHash = "$2a$11$l.xBhLrd5QUl0IjgnVFOu.fPwPe9rSjKfYnowuvZ5.n9bysAVS4Ru", // admin123
-        RoleId = 4,
-        IsLocked = false,
-        CreatedAt = new DateTime(2025, 1, 1),
-        UpdatedAt = new DateTime(2025, 1, 1)
-    }
-);
+            // --- SEED ADMIN USER ---
+            modelBuilder.Entity<Users>().HasData(
+                new Users
+                {
+                    Id = 1,
+                    Username = "admin",
+                    Email = "admin@example.com",
+                    PasswordHash = "$2a$11$l.xBhLrd5QUl0IjgnVFOu.fPwPe9rSjKfYnowuvZ5.n9bysAVS4Ru", // admin123
+                    RoleId = 4,
+                    IsLocked = false,
+                    CreatedAt = new DateTime(2025, 1, 1),
+                    UpdatedAt = new DateTime(2025, 1, 1)
+                }
+            );
+
+            modelBuilder.Entity<MediaFile>().HasData(
+                new MediaFile { Id = 1, Name = "SKU123_main_1.jpg", Type = "image", Size = 512, Date = new DateTime(2025, 3, 1), Url = "/media/SKU123_main_1.jpg" },
+                new MediaFile { Id = 2, Name = "SKU123_manual.pdf", Type = "pdf", Size = 120, Date = new DateTime(2025, 3, 1), Url = "/media/SKU123_manual.pdf" },
+                new MediaFile { Id = 3, Name = "spring_sale_SKU123_SKU222.jpg", Type = "image", Size = 1024, Date = new DateTime(2025, 3, 10), Url = "/media/spring_sale_SKU123_SKU222.jpg" },
+                new MediaFile { Id = 4, Name = "SKU222_ingredients.pdf", Type = "pdf", Size = 90, Date = new DateTime(2025, 2, 15), Url = "/media/SKU222_ingredients.pdf" }
+            );
+
 
         }
+        public DbSet<SalesReports> SalesReports { get; set; }
+
+        public DbSet<PurchaseReports> PurchaseReports { get; set; }
+
+        public DbSet<MediaFile> MediaFiles { get; set; }
+
+
     }
 }
