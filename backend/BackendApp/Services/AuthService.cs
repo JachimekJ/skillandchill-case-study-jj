@@ -34,20 +34,7 @@ namespace BackendApp.Services
                 return null;
             }
 
-            // ✅ sprawdzamy, czy użytkownik musi zmienić hasło przy pierwszym logowaniu
-            if (user.MustChangePassword)
-            {
-                await LogActivity(user.Id, "Login requires password change");
-                return new AuthResponseDto
-                {
-                    Id = user.Id,
-                    Username = user.Username,
-                    Role = user.Role.Name,
-                    Token = GenerateJwtToken(user)
-                };
-            }
-
-            if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
+             if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
             {
                 // zapisujemy nieudaną próbę
                 _context.LoginAttempts.Add(new LoginAttempts
@@ -73,6 +60,19 @@ namespace BackendApp.Services
 
                 await _context.SaveChangesAsync();
                 return null;
+            }
+
+            // ✅ sprawdzamy, czy użytkownik musi zmienić hasło przy pierwszym logowaniu
+            if (user.MustChangePassword)
+            {
+                await LogActivity(user.Id, "Login requires password change");
+                return new AuthResponseDto
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Role = user.Role.Name,
+                    Token = GenerateJwtToken(user)
+                };
             }
 
             // udane logowanie

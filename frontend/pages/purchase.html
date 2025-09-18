@@ -5,8 +5,13 @@
   <title>Portal B2B – Purchase Report</title>
   <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="dashboard-page">
   <div class="dashboard-container">
+
+    <nav class="subnav">
+  <a href="dashboard.html" class="back-link">⬅ Powrót do Dashboard</a>
+</nav>
+
     <h2>Purchase Report</h2>
 
     <form id="purchaseForm">
@@ -59,13 +64,11 @@
     <h3>Dashboard</h3>
     <canvas id="purchaseChart" width="600" height="300"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="purchase.js"></script>
-    <script src="purchase-dashboard.js"></script>  
-
 
     <p id="purchaseMessage" class="error"></p>
   </div>
 
   <script src="purchase.js"></script>
+  <script src="purchase-dashboard.js"></script>
 </body>
-</ht
+</html>

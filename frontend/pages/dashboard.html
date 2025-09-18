@@ -5,8 +5,13 @@
   <title>Portal B2B – Dashboard</title>
   <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="dashboard-page"> <!-- 🔑 tutaj dashboard-page -->
   <div class="dashboard-container">
+    <nav class="topnav">
+  <span id="userInfo"></span>
+  <a href="#" id="logoutBtn" class="logout-link">Wyloguj</a>
+</nav>
+
     <h2 id="welcomeMessage"></h2>
     <nav>
       <ul>
@@ -18,11 +23,17 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const username = localStorage.getItem("username") || "Użytkowniku";
-      document.getElementById("welcomeMessage").innerText =
-        `Witaj, ${username}!`;
+  document.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem("username") || "Użytkownik";
+    document.getElementById("userInfo").innerText = `👤 Zalogowany jako: ${username}`;
+
+    document.getElementById("logoutBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.clear(); // usuwa token, username, role
+      window.location.href = "../index.html"; // powrót do logowania
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>

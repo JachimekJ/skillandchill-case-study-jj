@@ -195,9 +195,9 @@ GET  /api/sales
 POST /api/sales
 GET  /api/sales/export
 
-GET  /api/purchases
-POST /api/purchases
-GET  /api/purchases/export
+GET  /api/purchase
+POST /api/purchase
+GET  /api/purchase/export
 
 GET  /api/media
 GET  /api/media/{id}/download

@@ -73,8 +73,8 @@
 
 ---
 
-## 3. Purchases
-### GET /api/purchases
+## 3. Purchase
+### GET /api/purchase
 - Response:
 [
   {
@@ -91,7 +91,7 @@
   }
 ]
 
-### POST /api/purchases
+### POST /api/purchase
 - Request:
 {
   "quarter": "Q1 2025",
@@ -105,7 +105,7 @@
 }
 - Response (201): { "message": "Purchase data saved" }
 
-### GET /api/purchases/export
+### GET /api/purchase/export
 - Response: plik CSV (UTF-8).
 
 ---

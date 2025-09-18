@@ -95,8 +95,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+else
+{
+    app.UseHttpsRedirection();
+}
 // 👇 ważne: włącz CORS
 app.UseCors("AllowFrontend");
 

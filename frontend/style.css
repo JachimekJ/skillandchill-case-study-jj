@@ -1,19 +1,43 @@
+/* 🔹 Globalne ustawienia */
 body {
   font-family: Arial, sans-serif;
   background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* umożliwia scrollowanie */
+}
+
+/* 🔹 Strona logowania */
+body.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* pełny ekran, wyśrodkowane */
 }
 
-.login-container, .dashboard-container {
+.login-container {
   background: white;
   padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 300px;
 }
 
+/* 🔹 Dashboard + podstrony */
+body.dashboard-page {
+  display: block; /* normalny układ */
+}
+
+.dashboard-container {
+  background: white;
+  padding: 20px 30px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+}
+
+/* 🔹 Formularze i inputy */
 input {
   display: block;
   margin: 10px 0;
@@ -26,8 +50,8 @@ button {
   color: white;
   border: none;
   padding: 10px;
-  width: 100%;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 button:hover {
@@ -38,3 +62,42 @@ button:hover {
   color: red;
   margin-top: 10px;
 }
+
+.subnav {
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #0078d7;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.back-link:hover {
+  background: #005a9e;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-link {
+  background: #d9534f;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.logout-link:hover {
+  background: #c9302c;
+}
+
