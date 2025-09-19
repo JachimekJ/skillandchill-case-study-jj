@@ -9,6 +9,8 @@
 ---
 
 ## 2. Struktura projektu
+
+```text
 frontend/
 ├── index.html            -> Strona logowania
 ├── style.css             -> Style globalne
@@ -26,6 +28,7 @@ frontend/
 │   ├── purchase.html
 │   ├── media.html
 │   └── admin.html
+```
 
 ---
 
