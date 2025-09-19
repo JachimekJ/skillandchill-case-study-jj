@@ -33,6 +33,8 @@ System działa w modelu klient–serwer:
 - Narzędzia: Git/GitHub, Postman, AI asystenci (ChatGPT/Copilot) do przyspieszenia implementacji (bezpieczne użycie).
 
 ## 4. Diagram architektury
+
+```text
 [ Przeglądarka (Frontend) ]
             |
          HTTPS / JSON
@@ -42,8 +44,11 @@ System działa w modelu klient–serwer:
        |                  +--> [ Media Storage (pliki) ]
        |
        +----------------------> [ SQLite (EF Core) ]
+```
 
 ## 5. Diagram modułów (logiczny)
+
+```text
 +------------------------+
 |  Logowanie & Role      |
 |  (Auth, Audit Logs)    |
@@ -58,6 +63,8 @@ System działa w modelu klient–serwer:
   +------ eksport CSV  +------ eksport CSV +--- pobieranie plików
   |
   +--> Dashboard (widok zbiorczy)
+
+```
 
 ## 6. Bezpieczeństwo
 - HTTPS w komunikacji; hasła hashowane (MVP: można zacząć od uproszczenia z jasnym opisem w docs).
