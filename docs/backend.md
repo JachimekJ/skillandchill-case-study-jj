@@ -16,7 +16,7 @@ BackendApp/
 ├── Data/             -> DbContext (AppDbContext), konfiguracje EF Core
 ├── Services/         -> Logika biznesowa (AuthService, SalesService, PurchaseService, MediaService, AdminService)
 ├── Program.cs        -> Konfiguracja DI, middleware, MapGet/MapPost (Minimal API)
-├── appsettings.json  -> Konfiguracja (np. connection string do SQLite)
+├── appsettings.json  -> Konfiguracja (np. connection string do SQLite) ```
 
 ## 3. Modele danych (Database Models)
 ### Users
