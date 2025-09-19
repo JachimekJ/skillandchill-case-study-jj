@@ -6,15 +6,17 @@
 - JWT (JSON Web Token) do autoryzacji.
 - Swagger (tylko w środowisku developerskim).
 
-## 2. Struktura projektu (Minimal API)
+2. Struktura projektu (Minimal API)
+
+```text
 BackendApp/
-├── Endpoints/         -> (opcjonalnie) definicje mapowań endpointów w osobnych plikach
-├── Models/            -> Klasy domenowe (User, Sales, Purchase, Media, Log)
-├── DTOs/              -> Data Transfer Objects (UserLoginDto, SalesDto, PurchaseDto, MediaDto)
-├── Data/              -> DbContext (AppDbContext), konfiguracje EF Core
-├── Services/          -> Logika biznesowa (AuthService, SalesService, PurchaseService, MediaService, AdminService)
-├── Program.cs         -> Konfiguracja DI, middleware, MapGet/MapPost (Minimal API)
-├── appsettings.json   -> Konfiguracja (np. connection string do SQLite)
+├── Endpoints/        -> (opcjonalnie) definicje mapowań endpointów w osobnych plikach
+├── Models/           -> Klasy domenowe (User, Sales, Purchase, Media, Log)
+├── DTOs/             -> Data Transfer Objects (UserLoginDto, SalesDto, PurchaseDto, MediaDto)
+├── Data/             -> DbContext (AppDbContext), konfiguracje EF Core
+├── Services/         -> Logika biznesowa (AuthService, SalesService, PurchaseService, MediaService, AdminService)
+├── Program.cs        -> Konfiguracja DI, middleware, MapGet/MapPost (Minimal API)
+├── appsettings.json  -> Konfiguracja (np. connection string do SQLite)
 
 ## 3. Modele danych (Database Models)
 ### Users
