@@ -87,7 +87,7 @@ Pełna dokumentacja znajduje się w katalogu **/docs**:
 ## 📸 Screenshots
 
 ### 🔐 Logowanie
-Ekran logowania z weryfikacją hasła i wymuszoną zmianą przy pierwszym logowaniu.  
+Ekran logowania z obsługą ról użytkowników i weryfikacją danych dostępowych.  
 ![Login Screen](docs/screens/login.png)
 
 ### 🏠 Dashboard
