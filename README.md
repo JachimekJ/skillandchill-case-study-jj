@@ -1,4 +1,3 @@
-# skillandchill-case-study-jj
 # Portal B2B dla Dystrybutorów – Case Study SKILL & CHILL
 
 ## 📌 Cel projektu
@@ -9,79 +8,100 @@ Celem projektu było stworzenie portalu B2B dla dystrybutorów firmy kosmetyczne
 - dostęp do materiałów marketingowych i produktowych,
 - (docelowo) zarządzanie użytkownikami i logami.
 
-Projekt został wykonany jako **MVP** w ramach case study rekrutacyjnego.
+Projekt został przygotowany jako część case study rekrutacyjnego – zawiera szczegółową dokumentację oraz działające MVP kluczowych funkcjonalności.
 
 ---
 
 ## 📖 Dokumentacja
 Pełna dokumentacja znajduje się w katalogu **/docs**:
-- `requirements.md` – wymagania biznesowe i techniczne
-- `design.md` – projekt architektury i modułów
-- `backend.md` – opis backendu
-- `frontend.md` – opis frontend
-- `api.md` – specyfikacja API
+- `requirements.md` – wymagania biznesowe i techniczne  
+- `design.md` – projekt architektury i modułów  
+- `backend.md` – opis backendu  
+- `frontend.md` – opis frontendu  
+- `api.md` – specyfikacja API  
 
 ---
 
 ## 🏗️ Architektura
-- **Backend:** ASP.NET Core (.NET 9, Minimal API), Entity Framework Core, SQLite (MVP), JWT.
-- **Frontend:** HTML5, CSS3 (RWD, desktop-first), JavaScript (fetch API, Chart.js).
-- **Komunikacja:** REST/JSON, HTTPS (docelowo).
+- **Backend:** ASP.NET Core (.NET 9, Minimal API), Entity Framework Core, SQLite (MVP), JWT  
+- **Frontend:** HTML5, CSS3 (desktop-first, responsywny), JavaScript (fetch API, Chart.js)  
+- **Komunikacja:** REST/JSON, HTTPS (docelowo)  
 
 ---
 
 ## ✅ Funkcje zrealizowane w MVP
 
 ### 🔐 Logowanie i autoryzacja
-- JWT + role (`Employee`, `Distributor`, `ExportManager`, `Admin`, `SuperAdmin`)
-- Blokada po 3 nieudanych próbach
-- Wymuszona zmiana hasła przy pierwszym logowaniu
-- Hierarchiczne odblokowywanie kont
+- JWT + role (`Employee`, `Distributor`, `ExportManager`, `Admin`, `SuperAdmin`)  
+- Blokada po 3 nieudanych próbach logowania  
+- Wymuszona zmiana hasła przy pierwszym logowaniu  
+- Hierarchiczne odblokowywanie kont  
 
 ### 📊 Sales Channels
-- Formularz kwartalny (Professional, Pharmacy, B2C, B2B, Third Party, Other)
-- Auto-sumowanie i wyliczenia (Total, EUR Total – uproszczony kurs)
-- Historia sprzedaży w tabeli
-- API: `GET /api/sales`, `POST /api/sales`
+- Formularz kwartalny (Professional, Pharmacy, B2C, B2B, Third Party, Other)  
+- Automatyczne sumowanie i wyliczenia (Total, EUR Total – uproszczony kurs)  
+- Historia sprzedaży w tabeli  
+- API: `GET /api/sales`, `POST /api/sales`  
 
 ### 🛒 Purchase Report
-- Formularz kwartalny (Last Year, Purchases, Budget, POS, Openings)
-- Auto-powiązanie z Sales (Actual Sales)
-- Automatyczne obliczenia (vs Last Year, vs Budget)
-- Historia raportów + dashboard z wykresem
-- API: `GET /api/purchase`, `POST /api/purchase`
+- Formularz kwartalny (Last Year, Purchases, Budget, POS, Openings)  
+- Auto-powiązanie z Sales (Actual Sales)  
+- Automatyczne obliczenia (vs Last Year, vs Budget)  
+- Historia raportów + dashboard z wykresem  
+- API: `GET /api/purchase`, `POST /api/purchase`  
 
 ### 📂 Media
-- Lista plików z repozytorium
-- Wyszukiwarka po SKU
-- Pobieranie plików
-- API: `GET /api/media`, `GET /api/media/search`
+- Lista plików z repozytorium  
+- Wyszukiwarka po SKU  
+- Pobieranie plików  
+- API: `GET /api/media`, `GET /api/media/search`  
 
 ---
 
 ## 🚧 Elementy do rozwinięcia (Next Steps)
-
-- **Eksport CSV** (Sales, Purchase)  
-- **Panel Admina** – zarządzanie użytkownikami, rolami, logami  
-- **Sortowanie i multi-download w Media**  
-- **Raportowanie sprzedaży po SKU**  
-- **Integracja z API NBP** dla kursów walut zamiast stałego mnożnika  
-- **Import danych do formularzy (Sales)**  
-- **Filtrowanie danych wg kraju/dystrybutora (Admin/Export Manager)**  
-- **Obsługa zastępstw Export Managerów**  
+- Eksport danych do CSV (Sales, Purchase)  
+- Panel Admina – zarządzanie użytkownikami, rolami, logami  
+- Sortowanie i pobieranie wielu plików w Media  
+- Raportowanie sprzedaży po SKU  
+- Integracja z API NBP dla kursów walut  
+- Import danych do formularzy (Sales)  
+- Filtrowanie danych wg kraju/dystrybutora  
+- Obsługa zastępstw Export Managerów  
 
 ---
 
 ## 🧪 Spójność dokumentacji z kodem
-- Dokumentacja opisuje pełen system zgodny z wymaganiami case study.  
-- MVP implementuje najważniejsze moduły, ale część funkcjonalności pozostaje w fazie planów.  
-- Repozytorium jest spójne: docs prezentuje **pełną wizję**, a kod – **działający szkielet systemu**.
+- Dokumentacja obejmuje pełny zakres wymagań z case study (Faza I i II).  
+- MVP implementuje najważniejsze funkcjonalności: logowanie, role, Sales, Purchase, Media.  
+- Część elementów (CSV, panel admina, raporty SKU) została opisana i zaplanowana jako kolejne etapy rozwoju.  
 
 ---
 
 ## 🎯 Ocena realizacji case study
-- **Case study**: zawiera 3 kluczowe moduły (Sales, Purchase, Media) + logowanie i role:contentReference[oaicite:1]{index=1}.  
-- **Repozytorium**: zrealizowało wszystkie trzy moduły + logowanie.  
-- **Braki**: eksport CSV, zaawansowany admin panel, część funkcji dodatkowych (sortowanie, import, NBP API).  
+- Kluczowe moduły case study (Sales, Purchase, Media + logowanie i role) zostały zrealizowane.  
+- Dokumentacja opisuje całość projektu i kolejne etapy rozwoju.  
+- MVP stanowi działający szkielet systemu, który może być stopniowo rozwijany.  
 
-📌 **Wniosek:** MVP spełnia wymagania pierwszej fazy projektu, a dokumentacja jasno wskazuje kierunki dalszego rozwoju. Projekt jest spójny i profesjonalnie przygotowany.
+---
+
+## 📸 Screenshots
+
+### 🔐 Logowanie
+Ekran logowania z weryfikacją hasła i wymuszoną zmianą przy pierwszym logowaniu.  
+![Login Screen](docs/screens/login.png)
+
+### 🏠 Dashboard
+Widok startowy po zalogowaniu, z dostępem do przypisanych modułów.  
+![Dashboard](docs/screens/dashboard.png)
+
+### 📊 Sales Channels
+Formularz do raportowania sprzedaży w różnych kanałach dystrybucji.  
+![Sales Module](docs/screens/sales.png)
+
+### 🛒 Purchase Report
+Moduł raportowania zakupów i punktów sprzedaży, z dashboardem i wykresami.  
+![Purchase Report](docs/screens/purchase.png)
+
+### 📂 Media
+Repozytorium materiałów marketingowych i produktowych z wyszukiwarką po SKU.  
+![Media Module](docs/screens/media.png)
