@@ -6,7 +6,7 @@
 - JWT (JSON Web Token) do autoryzacji.
 - Swagger (tylko w środowisku developerskim).
 
-2. Struktura projektu (Minimal API)
+## 2. Struktura projektu (Minimal API)
 
 ```text
 BackendApp/
@@ -99,7 +99,7 @@ BackendApp/
 - Details (json / text)  
 
 ---
-
+```text
 ### ERD (simplified ASCII diagram)
 
 +-------------+        +-----------+
@@ -163,7 +163,7 @@ BackendApp/
 +------------+        | Action         |
                       | Timestamp      |
                       +----------------+
-
+```
 ---
 
 ## 4. DTOs (przykłady)
