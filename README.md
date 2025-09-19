@@ -96,12 +96,12 @@ Widok startowy po zalogowaniu, z dostępem do przypisanych modułów.
 
 ### 📊 Sales Channels
 Formularz do raportowania sprzedaży w różnych kanałach dystrybucji.  
-![Sales Module](docs/screens/sales.png)
+![Sales Module](docs/screens/sales.jpeg)
 
 ### 🛒 Purchase Report
 Moduł raportowania zakupów i punktów sprzedaży, z dashboardem i wykresami.  
-![Purchase Report](docs/screens/purchase.png)
+![Purchase Report](docs/screens/purchase.jpeg)
 
 ### 📂 Media
 Repozytorium materiałów marketingowych i produktowych z wyszukiwarką po SKU.  
-![Media Module](docs/screens/media.png)
+![Media Module](docs/screens/media.jpeg)
